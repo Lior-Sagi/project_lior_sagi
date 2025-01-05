@@ -21,6 +21,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnTouchList
     ImageView tile;
     float initialX, initialY;
     ArrayList<PointF> validPositions = new ArrayList<>();
+    ArrayList<TileInfo> placedTiles = new ArrayList<>();
     private static final float SNAP_THRESHOLD = 50f; // Maximum distance for snapping
 
     @Override
@@ -57,10 +58,23 @@ public class MainActivity2 extends AppCompatActivity implements View.OnTouchList
         }
 
         if (closestPosition != null && minDistance < SNAP_THRESHOLD) {
+            // Snap to the closest valid position
             animateSnap(tile, closestPosition.x, closestPosition.y);
-        } else {
-            tile.setX(initialX);
-            tile.setY(initialY);
+        }
+        // Else: Do nothing; the tile stays where the user dropped it.
+    }
+
+    public class TileInfo {
+        public View tileView;
+        public float x, y;
+        public int leftValue, rightValue;
+
+        public TileInfo(View tileView, float x, float y, int leftValue, int rightValue) {
+            this.tileView = tileView;
+            this.x = x;
+            this.y = y;
+            this.leftValue = leftValue;
+            this.rightValue = rightValue;
         }
     }
 
@@ -76,9 +90,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnTouchList
         Card[] gamecards=new Card[28];
         for (int i=0;i<=28;i++)//loop on index
         {
-            for(int j=0;j<=7;j++)//loop on half1
+            for(int j=0;j<=6;j++)//loop on half1
             {
-                for(int k=0;k<=7;k++)//loop on half2
+                for(int k=0;k<=6;k++)//loop on half2
                 {
                     Card c=new Card(j,k);
                     gamecards[i]=c;

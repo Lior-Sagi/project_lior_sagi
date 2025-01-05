@@ -22,6 +22,12 @@
             android:src="@drawable/oneone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="284dp"
+            android:layout_height="122dp"
+            app:srcCompat="@drawable/onetwo" />
     </RelativeLayout>
 
 

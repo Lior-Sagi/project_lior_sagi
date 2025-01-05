@@ -35,4 +35,8 @@ public class Card {
         this.cardValue = cardValue;
     }
 
+    @Override
+    public String toString() {
+        return "[" + half1 + "|" + half2 + "]";
+    }
 }
