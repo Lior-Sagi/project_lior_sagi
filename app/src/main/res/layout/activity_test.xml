@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/playerTurnText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Player 1's Turn"
+        android:textSize="18sp"
+        android:gravity="center"
+        />
+
+    <GridLayout
+        android:id="@+id/dominoBoard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="6"
+        android:rowCount="3"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <!-- Buttons representing Domino tiles -->
+        <Button
+            android:id="@+id/tile1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:text="0|0"
+            android:onClick="onTileClick"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/tile2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="1"
+            android:text="0|1"
+            android:onClick="onTileClick"
+            android:textSize="18sp"/>
+
+        <!-- Add more tiles as needed -->
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/nextTurnBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next Turn"
+        android:onClick="onNextTurnClick"
+        android:textSize="18sp"/>
+</LinearLayout>
